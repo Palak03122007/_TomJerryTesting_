@@ -1,26 +1,32 @@
-var fixedRect,movingRect;
+var garden;
+var tom,jerry;
+var tom_img,jerry_img;
+
+function preload(){
+
+garden = laodImage("garden.png");
+tom = loadImage("tomOne.png");
+jerry = loadImage("jerry.png");
+
+}
 
 function setup(){
-  createCanvas(600,600);
-  fixedRect=createSprite(180,300,100,150);
-  fixedRect.shapeColor="green";
-  fixedRect.debug="true";
-  movingRect=createSprite(500,300,80,130);
-  movingRect.shapeColor="green";
-  movingRect.debug="true";
+
+    createCanvas(600,600);
+    background("black");
+    
+    garden_img = createSprite(300,300,10,10)
+    garden_img.addImage(garden);
+
+    tom_img = createSprite(450,450,10,10);
+    tom_img.addImage(tom);
+
+    jerry_img = createSprite(200,450,10,10);
+    jerry_img.addImage(jerry);
 }
 
 function draw(){
-  background("black");
-  movingRect.x=World.mouseX;
-  movingRect.y=World.mouseY;
-  if(movingRect.x-fixedRect.x<fixedRect.width/2+movingRect.width/2 && fixedRect.x-movingRect.x<fixedRect.width/2+movingRect.width/2 && movingRect.y-fixedRect.y<fixedRect.height/2+movingRect.height/2 && fixedRect.y-movingRect.y<fixedRect.height/2+movingRect.height/2){
-    fixedRect.shapeColor="red";
-    movingRect.shapeColor="red";
-  }
-  else{
-    fixedRect.shapeColor="green";
-    movingRect.shapeColor="green";
-  }
-  drawSprites();
+    createCanvas(600,600);
+    background("black");
+    drawSprites();
 }
